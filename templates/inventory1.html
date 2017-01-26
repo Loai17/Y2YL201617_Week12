@@ -6,22 +6,14 @@
 <p> There are currently no items in the catalog. </p>
 
 {% else %}
-{% for item in items %}
-{% if loop.index0 % 3 ==0 %}
-<div class="row">
-{% endif %}
-<div class="col-md-4">
-<a href={{url_for('product', product_id = item.id)}}>
+<div class="product">
+	{% for item in items %}
+   	<a href={{url_for('product', product_id = item.id)}}>
       	<p>{{item.name}}</p>
       	<img src={{item.photo}} height="250" >
   	</a>
-  </div>
-{% if loop.index0 %3 == 2 %}
+  	{% endfor %}
 </div>
-<br><br>
-{% endif %}
-{% endfor %}
-
 
 {% endif %}
 {% endblock %}
