@@ -6,20 +6,22 @@
 <p> There are currently no items in the catalog. </p>
 
 {% else %}
-<table class="table-responsive">
+<center>
+<table class="container">
 {% for item in items %}
 {% if loop.index0 % 3 ==0 %}
-<tr>
+<div class="row">
 {% endif %}
-<td>
+<div class="col-md-4">
 <a href={{url_for('product', product_id = item.id)}}>
       	<p>{{item.name}}</p>
       	<img src={{item.photo}} height="250" >
   	</a>
-</td>
+</div>
 {% if loop.index0 %3 == 2 %}
-</tr>
+</div>
 <br><br>
+</center>
 {% endif %}
 {% endfor %}
 
